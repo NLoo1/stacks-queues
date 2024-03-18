@@ -46,6 +46,8 @@ class Queue {
     else {
 
       // Set first node to be the next node, then decrement size
+
+      let dqNode = this.first
       this.first = this.first.next
       this.size -=1
 
@@ -55,14 +57,14 @@ class Queue {
         this.last = null
         this.size = 0
       }
-      return
+      return dqNode.val
     }
   }
 
   /** peek(): return the value of the first node in the queue. */
 
   peek() {
-    return this.first
+    return this.first.val
   }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
