@@ -27,8 +27,8 @@ class Stack {
       this.last = newNode 
     } else{
       let newNode = new Node(val)
-      this.last.next = newNode 
-      this.last = newNode 
+      this.first.next = newNode 
+      this.first = newNode 
       this.size +=1
     }
   }
@@ -38,13 +38,14 @@ class Stack {
 
   pop() {
     if(this.size <= 0 ) throw Error('Empty stack')
-    let pointer = this.first
-    for(let i = 0; i< this.size; i++){
+    let pointer = this.last
+    for(let i = 0; i< this.size-1; i++){
       pointer = pointer.next
     }
-    let lastNode = pointer.next
-    this.last = pointer 
-    return lastNode
+    let lastNode = pointer
+    this.first = pointer 
+    this.size -=1
+    return lastNode.val
 
   }
 
